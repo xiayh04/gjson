@@ -1,0 +1,32 @@
+<project name="gjson" default="main" basedir=".">
+	<property name="current-version" value="1.0"/>
+	<property name="jar-name" value="gjson-${current-version}.jar"/>
+	
+	<target name="main" depends="jar">
+	</target>
+	
+	<target name="clean">
+		<delete includeemptydirs="true">
+			<fileset dir="build/main" includes="**/*"/>
+		 </delete>
+		<delete file="build/${jar-name}"/>
+	</target>
+	
+	<target name="mkdir">
+	    <mkdir dir="bin"/>
+	</target>
+	
+	<target name="compile" depends="mkdir">
+		<javac 	srcdir="src" 
+				destdir="bin"
+				includes="**/*.java"
+				target="1.5"
+				source="1.5"/>
+	</target>
+	
+	<target name="jar" depends="compile">
+		<jar	destfile="build/${jar-name}"
+				basedir="bin"
+				includes="**/*.class"/>
+	</target>
+</project>
