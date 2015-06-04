@@ -1,0 +1,1 @@
+The google gwt json client have a clear API. However, the implementation depends on the other part of gwt. gjson has the same api as com.google.gwt.json.client, and rewrite the implementation, so it can be used independently.
